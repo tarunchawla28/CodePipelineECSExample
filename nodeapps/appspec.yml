@@ -7,3 +7,5 @@ Resources:
         TaskDefinition: "arn:aws:ecs:us-east-1:061350173834:task-definition/AppTaskDef"
         LoadBalancerInfo:
         #Replacethe below ContainerName, ContainerPort with your ContainerName, ContainerPortAdd
+          ContainerName: "AppContainer"
+          ContainerPort: 3010
