@@ -6,6 +6,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      # Replace the below REPOSITORY_URI with yours.
       - REPOSITORY_URI=061350173834.dkr.ecr.us-east-1.amazonaws.com/nodejslog/nodlogtest
   build:
     commands:
@@ -18,6 +19,7 @@ phases:
       - echo Pushing the Docker images...
       - docker push $REPOSITORY_URI:latest
       - echo Writing image definitions file...
+      #Replace the below container name with yours.
       - printf '[{"name":"osmoscontainer","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
 artifacts:
-    files: imagedefinitions.json
+    files: '**/*'
